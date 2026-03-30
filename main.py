@@ -107,6 +107,34 @@ def create_brightness_controls(parent_frame, monitor_id):
                         activebackground=BTN_HOVER,
                         command=lambda v=val, m=monitor_id: set_vcp(m, 10, v))
         btn.pack(side='left', padx=2)
+    
+    # Custom brightness control
+    frame_custom = tk.Frame(parent_frame, bg=FRAME_COLOR)
+    frame_custom.pack(pady=5)
+    
+    tk.Label(frame_custom, text="Personalizado:", bg=FRAME_COLOR, fg=TXT_COLOR).pack(side='left')
+    
+    brightness_entry = tk.Entry(frame_custom, width=5, bg=BTN_COLOR, fg=TXT_COLOR, insertbackground=TXT_COLOR, font=("Arial", 12))
+    brightness_entry.pack(side='left', padx=2)
+    brightness_entry.insert(0, "50")
+    
+    def set_custom_brightness():
+        try:
+            value = int(brightness_entry.get())
+            if 0 <= value <= 100:
+                val = int(maximum * value / 100)
+                set_vcp(monitor_id, 10, val)
+            else:
+                brightness_entry.delete(0, tk.END)
+                brightness_entry.insert(0, "50")
+        except ValueError:
+            brightness_entry.delete(0, tk.END)
+            brightness_entry.insert(0, "50")
+    
+    tk.Button(frame_custom, text="Aplicar", width=6,
+              bg=BTN_COLOR, fg=TXT_COLOR,
+              activebackground=BTN_HOVER,
+              command=set_custom_brightness).pack(side='left', padx=2)
 
 
 def create_contrast_controls(parent_frame, monitor_id):
@@ -124,6 +152,34 @@ def create_contrast_controls(parent_frame, monitor_id):
                         activebackground=BTN_HOVER,
                         command=lambda v=val, m=monitor_id: set_vcp(m, 12, v))
         btn.pack(side='left', padx=2)
+    
+    # Custom contrast control
+    frame_custom = tk.Frame(parent_frame, bg=FRAME_COLOR)
+    frame_custom.pack(pady=5)
+    
+    tk.Label(frame_custom, text="Personalizado:", bg=FRAME_COLOR, fg=TXT_COLOR).pack(side='left')
+    
+    contrast_entry = tk.Entry(frame_custom, width=5, bg=BTN_COLOR, fg=TXT_COLOR, insertbackground=TXT_COLOR, font=("Arial", 12))
+    contrast_entry.pack(side='left', padx=2)
+    contrast_entry.insert(0, "50")
+    
+    def set_custom_contrast():
+        try:
+            value = int(contrast_entry.get())
+            if 0 <= value <= 100:
+                val = int(maximum * value / 100)
+                set_vcp(monitor_id, 12, val)
+            else:
+                contrast_entry.delete(0, tk.END)
+                contrast_entry.insert(0, "50")
+        except ValueError:
+            contrast_entry.delete(0, tk.END)
+            contrast_entry.insert(0, "50")
+    
+    tk.Button(frame_custom, text="Aplicar", width=6,
+              bg=BTN_COLOR, fg=TXT_COLOR,
+              activebackground=BTN_HOVER,
+              command=set_custom_contrast).pack(side='left', padx=2)
 
 
 def create_temperature_controls(root):
@@ -145,6 +201,33 @@ def create_temperature_controls(root):
                         activebackground=BTN_HOVER,
                         command=lambda v=t: set_temperature(v))
         btn.pack(side='left', padx=5, pady=2)
+    
+    # Custom temperature control
+    frame_custom = tk.Frame(frame_temp, bg=FRAME_COLOR)
+    frame_custom.pack(pady=10)
+    
+    tk.Label(frame_custom, text="Personalizado (1000-10000):", bg=FRAME_COLOR, fg=TXT_COLOR).pack(side='left')
+    
+    temp_entry = tk.Entry(frame_custom, width=6, bg=BTN_COLOR, fg=TXT_COLOR, insertbackground=TXT_COLOR, font=("Arial", 12))
+    temp_entry.pack(side='left', padx=2)
+    temp_entry.insert(0, "6500")
+    
+    def set_custom_temperature():
+        try:
+            value = int(temp_entry.get())
+            if 1000 <= value <= 10000:
+                set_temperature(value)
+            else:
+                temp_entry.delete(0, tk.END)
+                temp_entry.insert(0, "6500")
+        except ValueError:
+            temp_entry.delete(0, tk.END)
+            temp_entry.insert(0, "6500")
+    
+    tk.Button(frame_custom, text="Aplicar", width=6,
+              bg=BTN_COLOR, fg=TXT_COLOR,
+              activebackground=BTN_HOVER,
+              command=set_custom_temperature).pack(side='left', padx=2)
 
 
 def setup_gui():

@@ -75,7 +75,7 @@ update-desktop-database /usr/share/applications/ 2>/dev/null || true
 echo ""
 echo "=== Instalación completada ==="
 echo "La aplicación ahora está disponible en el menú de aplicaciones:"
-echo "- Sistema → Control de Pantallas"
+echo "- Control de Pantalla y Brillo"
 echo ""
 echo "O puedes ejecutarla directamente con:"
 echo "python3 /opt/brillo-pantallas/main.py"
