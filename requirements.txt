@@ -1,0 +1,16 @@
+# Control de Pantallas - Dependencias Python
+# 
+# Nota: La mayoría de las dependencias son módulos estándar de Python
+# Solo Pillow es opcional para generar el icono
+
+# Para generación de icono (opcional)
+Pillow>=9.0.0
+
+# Módulos estándar utilizados (no requieren instalación):
+# - tkinter (generalmente incluido con Python)
+# - subprocess
+# - threading  
+# - re
+# - sys
+# - pathlib
+# - tkinter.ttk

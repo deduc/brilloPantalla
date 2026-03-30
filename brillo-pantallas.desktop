@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Control de Pantallas
+Name[es]=Control de Pantallas
+Comment=Controla el brillo, contraste y temperatura de color de tus monitores
+Comment[es]=Controla el brillo, contraste y temperatura de color de tus monitores
+Exec=python3 /opt/brillo-pantallas/main.py
+Icon=/opt/brillo-pantallas/icon.png
+Terminal=false
+Categories=System;Settings;HardwareSettings;
+Keywords=monitor;brightness;contrast;display;screen;brillo;contraste;pantalla;
+StartupNotify=true
