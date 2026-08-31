@@ -65,7 +65,9 @@ Puedes personalizar los monitores y valores predeterminados editando las constan
 ```python
 MONITORS = [1, 2]  # IDs de tus monitores
 STEPS = [0, 5, 10, 15, 20, 25, 30]  # Porcentajes de brillo/contraste
-TEMPS = [10000, 8716, 7430, 6144, 4858, 3572, 2286, 1000]  # Temperaturas de color
+# Temperatura de color: se controla como porcentaje de filtro de luz azul
+# 0% = sin filtro (6500K), 100% = filtro máximo (1000K). Convierte % a Kelvin:
+# kelvin = 6500 - percent * 55
 ```
 
 ## Troubleshooting
